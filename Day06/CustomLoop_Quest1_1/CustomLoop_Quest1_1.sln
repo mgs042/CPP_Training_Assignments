@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CustomLoop_Quest01_1", "CustomLoop_Quest01_1.vcxproj", "{F287FDAE-9BBB-4845-891B-E78EB42BCB1D}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CustomLoop_Quest1_1", "CustomLoop_Quest1_1.vcxproj", "{F287FDAE-9BBB-4845-891B-E78EB42BCB1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
