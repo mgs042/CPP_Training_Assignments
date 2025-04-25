@@ -32,7 +32,7 @@ int main()
 	int n, itr1, itr2, itr3; //declaring input and iterator variables
 	cout << "Enter the input: ";
 	cin >> n;
-	if (n < 4 || n>10)
+	if (n < 4 || n>10)  //since constraints are 4<=N<=10
 	{
 		cout << "Invalid Input" << endl;
 		exit(0);
@@ -58,4 +58,5 @@ int main()
 		cout << "*" << endl;
 	}
 	cout << "*"<<endl; //last *
+	return 0;
 }

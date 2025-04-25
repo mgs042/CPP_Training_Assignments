@@ -35,7 +35,7 @@ int main()
 	if (sumCubes == m) //check if the number is Armstrong
 		cout << "Armstrong Number" << endl;
 	else
-		cout << "Not a Armstrong Number" << endl;
+		cout << "Not an Armstrong Number" << endl;
 	return 0;
 
 }
