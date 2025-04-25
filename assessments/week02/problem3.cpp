@@ -23,7 +23,7 @@ int main()
 	int n, t, sumCubes=0, m; //create input, temporary and sum of cubes variables
 	cout << "Enter the input: ";
 	cin >> n;
-	m = n; //create a copy of the variable for final comparison
+	m = n; //create a copy of the input for final comparison
 	cout << endl;
 	while (n > 0)
 	{

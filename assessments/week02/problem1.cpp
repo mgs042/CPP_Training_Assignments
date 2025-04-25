@@ -30,7 +30,7 @@ using namespace std;
 int main()
 {
 	int n, itr1, itr2, itr3; //declaring input and iterator variables
-	cout << "Enter the value of n: ";
+	cout << "Enter the input: ";
 	cin >> n;
 	if (n < 4 || n>10)
 	{

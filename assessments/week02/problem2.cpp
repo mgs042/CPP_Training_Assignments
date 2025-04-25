@@ -1,6 +1,6 @@
 /*
 Problem 2: Digits Frequency Counter
-Objective: Write a program to count the frequency of each digit (0–9) in a given integer\
+Objective: Write a program to count the frequency of each digit (0–9) in a given integer
 
 Note:
 - do not use arrays
@@ -13,7 +13,7 @@ Digit frequencies:
 2: 0
 3: 3
 4: 3
-5: 0
+5: 2
 6: 0
 7: 0
 8: 0
@@ -28,7 +28,7 @@ int main()
 {
 	int n, temp; //declaring the input and temporary variables
 	int count0 = 0, count1 = 0, count2 = 0, count3 = 0, count4 = 0, count5 = 0, count6 = 0, count7 = 0, count8 = 0, count9 = 0; //to track count of each digit;
-	cout << "Enter the value of n: ";
+	cout << "Enter the input: ";
 	cin >> n;
 	cout << endl;
 	while (n > 0)
@@ -70,10 +70,9 @@ int main()
 			case 9:
 				count9++;
 				break;
-
 		}
 	}
-	cout << "Digit Frequencies: " << endl;
+	cout << "Digit Frequencies: " << endl; //display the digit frequencies
 	cout << "0: " << count0 << endl;
 	cout << "1: " << count1 << endl;
 	cout << "2: " << count2 << endl;
