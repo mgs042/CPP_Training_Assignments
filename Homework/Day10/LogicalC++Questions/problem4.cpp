@@ -24,5 +24,18 @@ int main()
 
 string convertToBinary(int n)
 {
+	cout << endl << bitset<32>(n).to_string() << endl;
+	return bitset<32>(n).to_string();
+}
 
+int countOnes(string bin)
+{
+	int count = 0;
+	for (int i = 0; i < bin.length(); i++)
+	{
+		if (bin[i] == '1')
+			count++;
+		
+	}
+	return count;
 }
