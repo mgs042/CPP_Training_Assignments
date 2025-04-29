@@ -18,24 +18,42 @@ explanation:
 #include<iostream>
 using namespace std;
 
+int getNumberOfDigits(int);
+int powerOfDigits(int, int);
+
 int main()
 {
-	int n, t, sumCubes=0, m; //create input, temporary and sum of cubes variables
+	int num;
 	cout << "Enter the input: ";
-	cin >> n;
-	m = n; //create a copy of the input for final comparison
+	cin >> num;
 	cout << endl;
-	while (n > 0)
-	{
-		t = n % 10; //to get the last digit of n
-		n /= 10; // to remove the last digit of n
-		sumCubes = sumCubes + (t * t * t); //update the sum of cubes with the cube of the digit
-
-	}
-	if (sumCubes == m) //check if the number is Armstrong
-		cout << "Armstrong Number" << endl;
+	if (num == powerOfDigits(num, getNumberOfDigits(num)))
+		cout << "Armstrong Number";
 	else
-		cout << "Not an Armstrong Number" << endl;
+		cout << "Not an Armstrong Number";
+	cout << endl;
 	return 0;
+}
 
+
+int getNumberOfDigits(int num)
+{
+	int count = 0;
+	for (;num > 0;num /= 10)
+		count++;
+	return count;
+}
+
+int powerOfDigits(int num, int pow)
+{
+	int sum = 0, rem, product;
+	for (;num > 0;num /= 10)
+	{
+		product = 1;
+		rem = num % 10;
+		for (int itr = 1; itr <= pow; ++itr)
+			product *= rem;
+		sum += product;
+	}
+	return sum;
 }
