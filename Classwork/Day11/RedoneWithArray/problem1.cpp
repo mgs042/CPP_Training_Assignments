@@ -39,10 +39,9 @@ int findPrimeNos(int n, int* arr)
 	for (int j = 2; j <= n; j++)
 	{
 		flag = true;
-		for (int i = 2; i <= (n / 2); i++)
+		for (int i = 2; i <= (j / 2); i++)
 		{
-			cout << i;
-			if (n % i == 0)
+			if (j % i == 0)
 			{
 				flag = false;
 				break;
@@ -51,12 +50,9 @@ int findPrimeNos(int n, int* arr)
 		if (flag)
 		{
 			arr[k] = j;
-			cout << j << endl;
 			k++;
 		}
 
 	}
-	for (int i = 0; i < 10; ++i)
-		cout << arr[i] << endl;
 	return k;
 }
