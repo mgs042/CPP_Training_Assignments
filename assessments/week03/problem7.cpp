@@ -7,6 +7,7 @@ result N-C for each integer N in the first list.
 */
 
 #include<iostream>
+#include<string.h>
 using namespace std;
 
 #define MAX 100
