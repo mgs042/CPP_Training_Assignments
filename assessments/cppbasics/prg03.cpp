@@ -11,7 +11,15 @@ int main()
 {
 	int num;
 	cin >> num;
-	if(isEve)
+	if (isEvenOrOdd(num))
+	{
+		cout<<"Even";
+	}
+	else
+	{
+		cout << "Odd";
+	}
+	return 0;
 }
 
 bool isEvenOrOdd(int a)
