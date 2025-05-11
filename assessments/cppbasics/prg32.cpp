@@ -1,5 +1,5 @@
 /*
-31) Write a Program to Print a Simple Pyramid Pattern
+32) Write a Program to print an Inverted Pyramid
 */
 #include<iostream>
 using namespace std;
@@ -16,7 +16,7 @@ int main()
 
 void printPattern(int n)
 {
-	for (int i = 1; i <= n; ++i)
+	for (int i = n; i >= 1; --i)
 	{
 		for (int j = 1; j <= (n - i); ++j)
 			cout << " ";
@@ -26,4 +26,3 @@ void printPattern(int n)
 	}
 
 }
-
