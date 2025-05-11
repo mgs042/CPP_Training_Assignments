@@ -5,7 +5,12 @@
 #include<iostream>
 using namespace std;
 
+#define N 10
+
 int main()
 {
-	
+	static int n=1;
+	if (cout << n << " " && ++n <= N && main()) {
+		exit(0);
+	}
 }
