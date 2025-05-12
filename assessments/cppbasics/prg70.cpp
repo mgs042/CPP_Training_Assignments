@@ -17,8 +17,8 @@ int main()
 {
 	char str[MAX], str1[MAX], str2[MAX];
 	cin.getline(str, MAX - 1);
-	strcpy_s(str1, str);
-	strcpy_s(str2, str);
+	strcpy(str1, str);
+	strcpy(str2, str);
 	cout << "Left Trim: '" << ltrim(str) << "'" << endl;
 	cout << "Right Trim: '" << rtrim(str1) << "'" << endl;
 	cout << "Full Trim: '" << trim(str2) << "'" << endl;
