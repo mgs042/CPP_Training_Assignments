@@ -3,6 +3,7 @@
 */
 
 #include<iostream>
+#include<climits>
 using namespace std;
 
 #define MAX 100

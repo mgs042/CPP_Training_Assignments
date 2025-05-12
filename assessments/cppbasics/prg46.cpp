@@ -2,6 +2,7 @@
 46) Write a Program for Octal to Decimal Conversion
 */
 #include<iostream>
+#include<cmath>
 using namespace std;
 
 int octalToDecimal(int num);

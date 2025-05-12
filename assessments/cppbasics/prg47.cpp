@@ -2,6 +2,7 @@
 47) Write a Program for Hexadecimal to Decimal Conversion
 */
 #include<iostream>
+#include<cmath>
 #include<string.h>
 using namespace std;
 

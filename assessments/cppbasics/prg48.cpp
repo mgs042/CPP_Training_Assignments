@@ -2,6 +2,7 @@
 48) Write a Program for Decimal to Binary Conversion
 */
 #include<iostream>
+#include<cmath>
 using namespace std;
 
 int decimalToBinary(int num);
