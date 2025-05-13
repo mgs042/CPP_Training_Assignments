@@ -55,13 +55,13 @@ char bigIndex[][20] = {
 };
 int main()
 {
-	/*int arr[MAX], num, size;
+	int arr[MAX], num, size;
 	char word[MAX] = "";
 	cout << "Enter a number: ";
 	cin >> num;
 	cout << endl;
 	size = numberToArray(arr, num);
-	cout << numberToWord(arr, size, word);*/
+	cout << numberToWord(arr, size, word);
 	char str[] = "one lakh";
 	cout << wordToNumber(str);
 }
