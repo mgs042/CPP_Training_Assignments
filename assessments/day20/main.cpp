@@ -3,7 +3,7 @@
 #include<string.h>
 using namespace std;
 
-#define MAX 50
+#define MAX 200
 
 char* numberToWord(int[], int, char[]);
 int numberToArray(int[], int);
@@ -270,7 +270,6 @@ int wordToNumber(char str[])
 			else
 				sum1 = 100;
 		}
-		cout << token << endl;;
 		token = strtok(NULL, " ");
 	}
 	return sum1+sum2;
