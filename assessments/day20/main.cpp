@@ -1,5 +1,6 @@
 #include<iostream>
 #include<algorithm>
+#include<string.h>
 using namespace std;
 
 #define MAX 100
@@ -54,13 +55,15 @@ char bigIndex[][20] = {
 };
 int main()
 {
-	int arr[MAX], num, size;
+	/*int arr[MAX], num, size;
 	char word[MAX] = "";
 	cout << "Enter a number: ";
 	cin >> num;
 	cout << endl;
 	size = numberToArray(arr, num);
-	cout << numberToWord(arr, size, word);
+	cout << numberToWord(arr, size, word);*/
+	char str[] = "one lakh";
+	cout << wordToNumber(str);
 }
 
 char* numberToWord(int arr[], int size, char word[])
@@ -160,9 +163,12 @@ int numberToArray(int split[], int num) {
 
 int searchOnes(char str[])
 {
+	char ch[MAX];
 	for (int i = 0; i < 9; ++i)
 	{
-		if (strcmp(str, ones[i]) == 0)
+		strcpy(ch, ones[i]);
+		ch[strlen(ch) - 1] = '\0';
+		if (strcmp(str, ch) == 0)
 			return i;
 	}
 	return -1;
@@ -170,9 +176,25 @@ int searchOnes(char str[])
 
 int searchTens(char str[])
 {
+	char ch[MAX];
 	for (int i = 0; i < 7; ++i)
 	{
-		if (strcmp(str, tens[i]) == 0)
+		strcpy(ch, tens[i]);
+		ch[strlen(ch) - 1] = '\0';
+		if (strcmp(str, ch) == 0)
+			return i;
+	}
+	return -1;
+}
+
+int searchElevens(char str[])
+{
+	char ch[MAX];
+	for (int i = 0; i < 7; ++i)
+	{
+		strcpy(ch, elevens[i]);
+		ch[strlen(ch) - 1] = '\0';
+		if (strcmp(str, ch) == 0)
 			return i;
 	}
 	return -1;
@@ -180,15 +202,56 @@ int searchTens(char str[])
 
 int searchBigIndex(char str[])
 {
-	for (int i = 0; i < 10; ++i)
+	char ch[MAX];
+	for (int i = 0; i < 3; ++i)
 	{
-		if (strcmp(str, tens[i]) == 0)
+		strcpy(ch, bigIndex[i]);
+		ch[strlen(ch) - 1] = '\0';
+		if (strcmp(str, ch) == 0)
 			return i;
 	}
 	return -1;
 }
 
-int wordToNumber(char str [])
+int wordToNumber(char str[])
+{
+	char* token = strtok(str, " ");
+	int sum1 = 0, sum2=0;
+	while (token)
+	{
+		
+		if (searchBigIndex(token) != -1)
+		{
+			if (sum1 != 0)
+				sum2 += sum1 * pow(10, ((2 * searchBigIndex(token)) + 3));
+			else
+				sum2 += pow(10, ((2 * searchBigIndex(token)) + 3));
+			sum1 = 0;
+		}
+		else if (searchOnes(token) != -1)
+		{
+			sum1 += searchOnes(token) + 1;
+			
+		}
+		else if (searchTens(token) != -1)
+		{
+			sum1 += ((searchTens(token) + 2) * 10);
+		}
+		else if (searchElevens(token) != -1)
+		{
+			sum1 += (searchElevens(token)+10);
+		}
+		else if (strcmp(token, "hundred") == 0)
+		{
+			if (sum1 != 0)
+				sum1 *= 100;
+			else
+				sum1 = 100;
+		}
+		token = strtok(NULL, " ");
+	}
+	return sum1+sum2;
+}
 
 
 
