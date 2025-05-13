@@ -68,14 +68,14 @@ int main()
 	switch (choice)
 	{
 	case 1:
-		cout << "Enter a number: ";
+		cout << "Enter the amount in numbers: ";
 		cin >> num;
 		cout << endl;
 		size = numberToArray(arr, num);
 		cout << numberToWord(arr, size, word);
 		break;
 	case 2:
-		cout << "Enter the number name: ";
+		cout << "Enter the amount in words: ";
 		cin.getline(str, MAX - 1);
 		cout << wordToNumber(str);
 		break;
@@ -270,6 +270,7 @@ int wordToNumber(char str[])
 			else
 				sum1 = 100;
 		}
+		cout << token << endl;;
 		token = strtok(NULL, " ");
 	}
 	return sum1+sum2;
