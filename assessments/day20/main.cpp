@@ -1,5 +1,6 @@
 #include<iostream>
 #include<algorithm>
+#include<math.h>
 #include<string.h>
 using namespace std;
 
@@ -62,7 +63,7 @@ int main()
 	cout << "Choose one option below to do conversion" << endl;
 	cout << "1) Number to Word(eg:100 -> Hundred)" << endl;
 	cout << "2) Word to Number(eg:one lakh -> 100000)" << endl;
-	cout << "Enter choice: ";
+	cout << "Enter your choice [1/2]: ";
 	cin >> choice;
 	getchar();
 	switch (choice)
