@@ -3,7 +3,7 @@
 #include<string.h>
 using namespace std;
 
-#define MAX 100
+#define MAX 50
 
 char* numberToWord(int[], int, char[]);
 int numberToArray(int[], int);
@@ -54,17 +54,39 @@ char bigIndex[][20] = {
 	"crore "
 };
 int main()
-{
+{   
+	int choice;
 	int arr[MAX], num, size;
 	char word[MAX] = "";
-	cout << "Enter a number: ";
-	cin >> num;
-	cout << endl;
-	size = numberToArray(arr, num);
-	cout << numberToWord(arr, size, word);
-	char str[] = "one lakh";
-	cout << wordToNumber(str);
+	char str[MAX];
+	cout << "Choose one option below to do conversion" << endl;
+	cout << "1) Number to Word(eg:100 -> Hundred)" << endl;
+	cout << "2) Word to Number(eg:one lakh -> 100000)" << endl;
+	cout << "Enter choice: ";
+	cin >> choice;
+	getchar();
+	switch (choice)
+	{
+	case 1:
+		cout << "Enter a number: ";
+		cin >> num;
+		cout << endl;
+		size = numberToArray(arr, num);
+		cout << numberToWord(arr, size, word);
+		break;
+	case 2:
+		cout << "Enter the number name: ";
+		cin.getline(str, MAX - 1);
+		cout << wordToNumber(str);
+		break;
+	default:
+		cout << "Invalid option";
+		break;
+	}
+	cout << endl << endl;	
+	return 0;
 }
+
 
 char* numberToWord(int arr[], int size, char word[])
 {
@@ -147,7 +169,7 @@ char* numberToWord(int arr[], int size, char word[])
 		}
 		return word;
 	}
-	
+	return word;
 }
 
 int numberToArray(int split[], int num) {
