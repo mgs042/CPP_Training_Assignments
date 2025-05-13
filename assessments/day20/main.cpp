@@ -71,6 +71,11 @@ int main()
 	case 1:
 		cout << "Enter the amount in numbers: ";
 		cin >> num;
+		if (num <= 0 || num > 999999999)
+		{
+			cout << "Out of Range";
+			return 0;
+		}
 		cout << endl;
 		size = numberToArray(arr, num);
 		cout << numberToWord(arr, size, word);
