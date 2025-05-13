@@ -1,10 +1,15 @@
 #include<iostream>
+#include<algorithm>
 using namespace std;
 
 #define MAX 100
 
 char* numberToWord(int[], int, char[]);
 int numberToArray(int[], int);
+int searchTens(char[]);
+int searchOnes(char[]);
+int searchBigIndex(char[]);
+int wordToNumber(char[]);
 
 char ones[][20] = {
 	"one ",
@@ -30,7 +35,7 @@ char tens[][20] = {
 };
 
 char elevens[][20] = {
-	"ten "
+	"ten ",
 	"eleven ",
 	"twelve ",
 	"thirteen ",
@@ -82,7 +87,10 @@ char* numberToWord(int arr[], int size, char word[])
 	else if (size == 3)
 	{
 		strcat(word, ones[arr[0] - 1]);
-		strcat(word, "hundred and ");
+		if(arr[1]!=0||arr[2]!=0)
+			strcat(word, "hundred and ");
+		else
+			strcat(word, "hundred ");
 		if (arr[1] != 1)
 		{
 			strcat(word, tens[arr[1] - 2]);
@@ -110,18 +118,21 @@ char* numberToWord(int arr[], int size, char word[])
 				{
 					strcat(word, elevens[arr[i + 1]]);
 					strcat(word, bigIndex[(n - 1) / 2]);
-					i--;
+					i++;
 					n--;
 				}
 			}
 			else
 			{
-				strcat(word, ones[arr[i] - 1]);
-				strcat(word, bigIndex[n / 2]);
+				if (arr[i] != 0)
+					strcat(word, ones[arr[i] - 1]);
+				if(arr[i-1]!=0)
+					strcat(word, bigIndex[n / 2]);
 			}
 		}
 		strcat(word, ones[arr[i] - 1]);
-		strcat(word, "hundred and ");
+		if(arr[i]!=0)
+			strcat(word, "hundred and ");
 		if (arr[i+1] != 1)
 		{
 			strcat(word, tens[arr[i+1] - 2]);
@@ -136,10 +147,36 @@ char* numberToWord(int arr[], int size, char word[])
 	
 }
 
+int numberToArray(int split[], int num) {
+	int i = 0;
+	while (num > 0) {
+		split[i] = num % 10;
+		i++;
+		num /= 10;
+	}
+	reverse(split, split + i);
+	return i;
+}
 
+int searchOnes(char str[])
+{
+	for (int i = 0; i < 9; ++i)
+	{
+		if (strcmp(str, ones[i]) == 0)
+			return i;
+	}
+	return -1;
+}
 
-
-
+int searchTens(char str[])
+{
+	for (int i = 0; i < 9; ++i)
+	{
+		if (strcmp(str, ones[i]) == 0)
+			return i;
+	}
+	return -1;
+}
 
 
 
