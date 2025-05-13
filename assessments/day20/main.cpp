@@ -170,15 +170,25 @@ int searchOnes(char str[])
 
 int searchTens(char str[])
 {
-	for (int i = 0; i < 9; ++i)
+	for (int i = 0; i < 7; ++i)
 	{
-		if (strcmp(str, ones[i]) == 0)
+		if (strcmp(str, tens[i]) == 0)
 			return i;
 	}
 	return -1;
 }
 
+int searchBigIndex(char str[])
+{
+	for (int i = 0; i < 10; ++i)
+	{
+		if (strcmp(str, tens[i]) == 0)
+			return i;
+	}
+	return -1;
+}
 
+int wordToNumber(char str [])
 
 
 
