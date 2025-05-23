@@ -12,47 +12,36 @@ using namespace std;
 
 class ArrayManipulation
 {
-	int *arr;
+	int* arr;
 	int size;
+	int capacity;
 public:
 	ArrayManipulation()
 	{
-		arr = nullptr;
+		capacity = 1;
+		arr = new int [capacity];
 		size = 0;
-	}
-	ArrayManipulation(int a[], int s)
-	{
-		arr = (int*)malloc(sizeof(int) * s);
-		if (arr != nullptr)
-		{
-			for (int i = 0; i < s; ++i)
-			{
-				arr[i] = a[i];
-			}
-			size = s;
-		}
-		else
-		{
-			cout << "Memory Allocation failed" << endl;
-		}
-			
 	}
 	~ArrayManipulation()
 	{
-		free(arr);
+		delete[] arr;
 	}
 	void pushBack(int n)
 	{
-		int *ptr = (int*)realloc(arr, sizeof(int) * ++size);
-		if (ptr != nullptr)
+		arr[size++] = n;
+		if (size == capacity)
+			resize();
+	}
+	void resize()
+	{
+		capacity *= 2;
+		int* ptr = new int[capacity];
+		for (int i = 0; i < size; ++i)
 		{
-			arr = ptr;
-			arr[size - 1] = n;
+			ptr[i] = arr[i];
 		}
-		else
-		{
-			cout << "Memory Allocation failed" << endl;
-		}
+		delete[] arr;
+		arr = ptr;
 	}
 	void displayArr()
 	{
@@ -79,7 +68,7 @@ public:
 				if (arr[j] > arr[j + 1])
 				{
 					arr[j] = arr[j] ^ arr[j + 1];
-					arr[j+1] = arr[j] ^ arr[j + 1];
+					arr[j + 1] = arr[j] ^ arr[j + 1];
 					arr[j] = arr[j] ^ arr[j + 1];
 				}
 			}
