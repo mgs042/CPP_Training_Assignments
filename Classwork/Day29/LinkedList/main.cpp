@@ -8,9 +8,13 @@ typedef struct Node
 }NODE;
 
 NODE* allocateMemeory(int, NODE*);
-void insertAtEnd(NODE*, NODE*&);
-void insertAtPosition(NODE*, int, NODE*&);
-void insertAtBeginning(NODE*, NODE*&);
+NODE* insertAtEnd(NODE*, NODE*);
+NODE* insertAtPosition(NODE*, int, NODE*);
+NODE* insertAtBeginning(NODE*, NODE*);
+NODE* deleteAtBeginning(NODE*);
+NODE* deleteAtEnd(NODE*);
+NODE* deleteAtPosition(NODE*);
+int search(int, NODE*);
 void traverse(NODE*);
 int menu();
 
@@ -30,7 +34,7 @@ int main()
 			cout << "Enter the value of the node: ";
 			cin >> val;
 			ptr = allocateMemeory(val, nullptr);
-			insertAtEnd(ptr, head);
+			head=insertAtEnd(ptr, head);
 			break;
 		case 2:
 			cout << "Enter the value of the node: ";
@@ -38,13 +42,13 @@ int main()
 			cout << "Enter the position: ";
 			cin >> pos;
 			ptr = allocateMemeory(val, nullptr);
-			insertAtPosition(ptr, pos, head);
+			head = insertAtPosition(ptr, pos, head);
 			break;
 		case 3:
 			cout << "Enter the value of the node: ";
 			cin >> val;
 			ptr = allocateMemeory(val, head);
-			insertAtBeginning(ptr, head);
+			head = insertAtBeginning(ptr, head);
 			break;
 		case 4:
 			traverse(head);
@@ -73,28 +77,29 @@ int menu()
 	return choice;
 }
 
-void insertAtEnd(NODE* n, NODE* &head)
+NODE* insertAtEnd(NODE* n, NODE* head)
 {
 	if (head == nullptr)
 	{
 		head = n;
-		return;
+		return head;
 	}
 	NODE* ptr = head;
 	while (ptr->next != nullptr)
 		ptr = ptr->next;
 	ptr->next = n;
+	return head;
 }
 
 
-void insertAtPosition(NODE *n, int pos, NODE*& head)
+NODE* insertAtPosition(NODE *n, int pos, NODE* head)
 {
 	int p = 1;
 	if (pos == 1)
 	{
 		n->next = head;
 		head = n;
-		return;
+		return head;
 	}
 	NODE* ptr = head;
 	while (p != pos-1 && ptr != nullptr)
@@ -103,14 +108,16 @@ void insertAtPosition(NODE *n, int pos, NODE*& head)
 		p++;
 	}
 	if (ptr == nullptr)
-		return;
+		return head;
 	n->next = ptr->next;
 	ptr->next = n;
+	return head;
 }
 
-void insertAtBeginning(NODE* n, NODE*& head)
+NODE* insertAtBeginning(NODE* n, NODE* head)
 {
 	head = n;
+	return head;
 }
 
 void traverse(NODE* head)
