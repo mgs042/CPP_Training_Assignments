@@ -4,6 +4,7 @@ class LinkedList
 {
 	Node* head;
 	Node* createNode(int);
+	bool checkIfEmpty();
 public:
 	LinkedList();
 	~LinkedList();
@@ -12,8 +13,8 @@ public:
 	void insertAtPosition(int, int);
 	void deleteAtBeginning();
 	void deleteAtEnd();
-	void deleteAtPosition();
+	void deleteAtPosition(int);
 	void displayList();
-	int searchList(int);
-	void updateList(int, int);
+	Node* searchList(int);
+	void updateList(Node*, int);
 };
