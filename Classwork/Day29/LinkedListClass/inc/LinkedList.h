@@ -14,6 +14,7 @@ public:
 	void deleteAtBeginning();
 	void deleteAtEnd();
 	void deleteAtPosition(int);
+	void deleteAnElement(Node*);
 	void displayList();
 	Node* searchList(int);
 	void updateList(Node*, int);

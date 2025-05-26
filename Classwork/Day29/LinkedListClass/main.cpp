@@ -53,6 +53,12 @@ int main()
 			list.deleteAtPosition(pos);
 			break;
 		case 7:
+			cout << endl << "Delete an Element" << endl;
+			cout << "Enter a value to be deleted: ";
+			cin >> val;
+			list.deleteAnElement(list.searchList(val));
+			break;
+		case 8:
 			cout << endl << "Search for Value" << endl;
 			cout << "Enter a value to be searched for: ";
 			cin >> val;
@@ -61,7 +67,7 @@ int main()
 			cout << "Node next: " << ptr->getNext() << endl;
 			cout << "Node address: " << (unsigned long int) & ptr << endl;
 			break;
-		case 8:
+		case 9:
 			cout << endl << "Update the List" << endl << endl;
 			cout << "Enter a value to be updated: ";
 			cin >> pos;
@@ -69,11 +75,11 @@ int main()
 			cin >> val;
 			list.updateList(list.searchList(pos), val);
 			break;
-		case 9:
+		case 10:
 			cout << endl << "Display the List" << endl << endl;
 			list.displayList();
 			break;
-		case 10:
+		case 11:
 			cout << endl << "Exit" << endl << endl;
 			exit(0);
 			break;
@@ -86,7 +92,7 @@ int main()
 int displayMenu()
 {
 	int choice;
-	cout << endl;
+	cout << endl << endl;
 	cout << "\tMenu" << endl;
 	cout << "\t~~~~" << endl;
 	cout << "1. Insert at Beginning" << endl;
@@ -95,11 +101,12 @@ int displayMenu()
 	cout << "4. Delete at Beginning" << endl;
 	cout << "5. Delete at End" << endl;
 	cout << "6. Delete at Position" << endl;
-	cout << "7. Search List" << endl;
-	cout << "8. Update List" << endl;
-	cout << "9. Display List" << endl;
-	cout<<"10. Exit"<<endl;
-	cout << endl << "Enter your choice [1-10]: ";
+	cout << "7. Delete an Element" << endl;
+	cout << "8. Search List" << endl;
+	cout << "9. Update List" << endl;
+	cout << "10. Display List" << endl;
+	cout<<"11. Exit"<<endl;
+	cout << endl << "Enter your choice [1-11]: ";
 	cin >> choice;
 	return choice;
 }

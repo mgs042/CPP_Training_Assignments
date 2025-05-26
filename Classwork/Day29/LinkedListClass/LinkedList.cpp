@@ -132,6 +132,27 @@ void LinkedList::deleteAtPosition(int pos)
 	delete ptr1;
 }
 
+void LinkedList::deleteAnElement(Node* target)
+{
+	if (target == head)
+	{
+		deleteAtBeginning();
+		return;
+	}
+	Node* ptr = head, *temp=nullptr;
+	while (ptr != nullptr)
+	{
+		if (ptr->getNext() == target)
+		{
+			temp = ptr->getNext();
+			ptr->setNext(temp->getNext());
+			delete temp;
+			return;
+		}
+		ptr = ptr->getNext();
+	}
+}
+
 void LinkedList::displayList()
 {
 	if (checkIfEmpty())
