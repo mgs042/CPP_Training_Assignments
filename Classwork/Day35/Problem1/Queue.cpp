@@ -6,11 +6,13 @@
 #include<string>
 using namespace std;
 
+int Queue::totalTime = 0;
+
 struct Compare
 {
 	bool operator()(Job ob1, Job ob2) const 
 	{ 
-		return ob1.getPriority() < ob2.getPriority(); 
+		return ob1.getPriority() > ob2.getPriority(); 
 	}
 };
 
@@ -22,7 +24,7 @@ Queue::Queue(const char* filename)
 	try
 	{
 		file.open(filename, ios::in);
-		if (file.is_open())
+		if (!file.is_open())
 			throw "File cannot be opened";
 	}
 	catch (string s)
@@ -38,9 +40,11 @@ Queue::Queue(const char* filename)
 		ob.setExecutionTime(val);
 		file >> val;
 		ob.setPriority(val);
+		jobQueue.push_back(ob);
 	}
 	file.close();
 	totalTime = 0;
+	isPriority = false;
 }
 
 void Queue::sortPriority()
@@ -48,15 +52,27 @@ void Queue::sortPriority()
 	sort(jobQueue.begin(), jobQueue.end(), Compare());
 }
 
-void Queue::executeQueue()
+void Queue::executeQueue(Logger &ob)
 {
+	if (isPriority)
+		sortPriority();
 	for (auto i : jobQueue)
 	{
-		totalTime += i.executeJob();
+		totalTime += i.executeJob(ob);
 	}
 }
 
 int Queue::getTotalTime()
 {
 	return totalTime;
+}
+
+int Queue::getJobCount()
+{
+	return jobQueue.size();
+}
+
+void Queue::setPriorityFlag(bool flag)
+{
+	this->isPriority = flag;
 }

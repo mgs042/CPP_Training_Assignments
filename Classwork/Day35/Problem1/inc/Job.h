@@ -1,5 +1,5 @@
 #pragma once
-
+#include<Logger.h>
 class Job {
 private:
     int jobId;
@@ -15,5 +15,5 @@ public:
     int getExecutionTime();
     int getPriority();
     void display();
-    int executeJob();
+    int executeJob(Logger &);
 };

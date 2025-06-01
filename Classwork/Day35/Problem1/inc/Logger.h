@@ -6,8 +6,8 @@ using namespace std;
 class Logger
 {
 	ofstream logFile;
+	const char* levelToString(int);
 public:
 	Logger(const char*);
-	string levelToString(int);
-	void log(int, string);
+	void log(int, const char *);
 };

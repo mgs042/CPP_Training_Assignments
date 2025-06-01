@@ -47,11 +47,14 @@ void Job::display()
 	cout << endl;
 }
 
-int Job::executeJob()
+int Job::executeJob(Logger &ob)
 {
 	auto start = chrono::system_clock::now();
 	this_thread::sleep_for(chrono::milliseconds(executionTime));
 	auto end = chrono::system_clock::now();
 	auto duration = chrono::duration_cast<chrono::milliseconds>(end - start);
+	char msg[100];
+	sprintf(msg, "Executing Job ID: %d | Priority: %d | ExecTime %dms", jobId, priority, duration.count());
+	ob.log(1, msg);
 	return duration.count();
 }
