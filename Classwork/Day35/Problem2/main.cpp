@@ -40,7 +40,7 @@ int main()
 			cout << "Invalid Option" << endl;
 			break;
 		case 1:
-			pMon.readPackets("packets.txt");
+			pMon.readPackets("packets.txt", pLog);
 			count = pMon.getPacketCount();
 			sprintf_s(msg, "Loaded %d packets", count);
 			pLog.log(INFO, msg);

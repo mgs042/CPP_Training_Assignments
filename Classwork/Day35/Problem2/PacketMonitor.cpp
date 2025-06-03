@@ -12,7 +12,7 @@ enum logLevel
 	ERROR
 };
 
-void PacketMonitor::readPackets(const char* filename)
+void PacketMonitor::readPackets(const char* filename, Logger &ob1)
 {
 	ifstream packetFile;
 	try
@@ -33,7 +33,13 @@ void PacketMonitor::readPackets(const char* filename)
 	string p;
 	while (!packetFile.eof())
 	{
-		packetFile >> id >> p >> s;
+		try {
+			packetFile >> id >> p >> s;
+		}
+		catch (const std::exception& e)
+		{
+			ob1.log(ERROR, "Malformed data packet");
+		}
 		ob.setPacketId(id);
 		ob.setSize(s);
 		ob.setProtocol(p);

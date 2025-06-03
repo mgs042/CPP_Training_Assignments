@@ -6,7 +6,7 @@ class PacketMonitor
 {
 	vector<Packet> packetBuffer;
 public:
-	void readPackets(const char*);
+	void readPackets(const char*, Logger&);
 	void filterByProtocol(string, Logger&);
 	void detectLargePackets(Logger&);
 	int getPacketCount();

@@ -1,0 +1,5 @@
+[INFO] Loaded 6 packets
+[DEBUG] Packet 3 | ICMP | 1050 bytes
+[DEBUG] Packet 6 | ICMP | 213 bytes
+[WARNING] Packet 3 | ICMP | 1050 bytes
+[INFO] Logs saved to netmon_log.txt
