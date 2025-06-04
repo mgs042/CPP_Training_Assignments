@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34714.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Problem 3- Task Reordering System", "Problem 3- Task Reordering System.vcxproj", "{131CF9DC-B2A8-47F3-B9E2-AC2F57364A48}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{131CF9DC-B2A8-47F3-B9E2-AC2F57364A48}.Debug|x64.ActiveCfg = Debug|x64
+		{131CF9DC-B2A8-47F3-B9E2-AC2F57364A48}.Debug|x64.Build.0 = Debug|x64
+		{131CF9DC-B2A8-47F3-B9E2-AC2F57364A48}.Debug|x86.ActiveCfg = Debug|Win32
+		{131CF9DC-B2A8-47F3-B9E2-AC2F57364A48}.Debug|x86.Build.0 = Debug|Win32
+		{131CF9DC-B2A8-47F3-B9E2-AC2F57364A48}.Release|x64.ActiveCfg = Release|x64
+		{131CF9DC-B2A8-47F3-B9E2-AC2F57364A48}.Release|x64.Build.0 = Release|x64
+		{131CF9DC-B2A8-47F3-B9E2-AC2F57364A48}.Release|x86.ActiveCfg = Release|Win32
+		{131CF9DC-B2A8-47F3-B9E2-AC2F57364A48}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3CFD5F76-D56C-4BDC-9E9C-DF8C8CF1DEC3}
+	EndGlobalSection
+EndGlobal
