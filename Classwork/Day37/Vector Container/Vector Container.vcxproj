@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{e426bf0d-e96d-4aed-8a06-5caa1afe5d4d}</ProjectGuid>
-    <RootNamespace>StringCOntainers</RootNamespace>
+    <ProjectGuid>{478498a8-15d7-436d-9970-8bdb84ee14b6}</ProjectGuid>
+    <RootNamespace>VectorContainer</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>String Containers</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
