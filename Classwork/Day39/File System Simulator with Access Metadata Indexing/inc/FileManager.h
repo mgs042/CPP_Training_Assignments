@@ -3,7 +3,6 @@
 #include<unordered_map>
 #include<string>
 #include<map>
-#include<array>
 #include<set>
 #include<deque>
 using namespace std;
@@ -27,5 +26,8 @@ public:
 	void addFile(int, string, string);
 	void accessFile(int, string, string);
 	void deleteFile(int);
-
+	void listAll();
+	void listRecent();
+	void displayFrequency(int);
+	void listFilesUser(string);
 };
