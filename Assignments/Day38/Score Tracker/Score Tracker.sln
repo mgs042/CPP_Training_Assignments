@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34714.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Score Tracker", "Score Tracker.vcxproj", "{438944A2-7C92-4334-84DE-EC6290FE9522}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{438944A2-7C92-4334-84DE-EC6290FE9522}.Debug|x64.ActiveCfg = Debug|x64
+		{438944A2-7C92-4334-84DE-EC6290FE9522}.Debug|x64.Build.0 = Debug|x64
+		{438944A2-7C92-4334-84DE-EC6290FE9522}.Debug|x86.ActiveCfg = Debug|Win32
+		{438944A2-7C92-4334-84DE-EC6290FE9522}.Debug|x86.Build.0 = Debug|Win32
+		{438944A2-7C92-4334-84DE-EC6290FE9522}.Release|x64.ActiveCfg = Release|x64
+		{438944A2-7C92-4334-84DE-EC6290FE9522}.Release|x64.Build.0 = Release|x64
+		{438944A2-7C92-4334-84DE-EC6290FE9522}.Release|x86.ActiveCfg = Release|Win32
+		{438944A2-7C92-4334-84DE-EC6290FE9522}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE4D06F1-E781-4618-B94D-72731613E138}
+	EndGlobalSection
+EndGlobal
