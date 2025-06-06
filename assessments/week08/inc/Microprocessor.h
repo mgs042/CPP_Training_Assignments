@@ -2,11 +2,12 @@
 
 #include<array>
 #include<string>
+#include<map>
 using namespace std;
 
 class Microprocessor
 {
-	int AX, BX, CX, DX;
+	map<string, int> registers;
 	array<int, 64> memory;
 	int PC;
 	bool isRegister(string);

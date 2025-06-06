@@ -2,7 +2,14 @@
 #include<iostream>
 using namespace std;
 
-Microprocessor::Microprocessor() : AX(0), BX(0), CX(0), DX(0), PC(0) { memory.fill(INT_MAX); }
+Microprocessor::Microprocessor() : PC(0) 
+{
+	memory.fill(INT_MAX); 
+	registers["AX"] = INT_MAX;
+	registers["BX"] = INT_MAX;
+	registers["CX"] = INT_MAX;
+	registers["DX"] = INT_MAX;
+}
 
 bool Microprocessor::isRegister(string s) //to check if register
 {
@@ -23,14 +30,10 @@ int Microprocessor::readRegister(string reg) //
 {
 	try
 	{
-		if (reg == "AX")
-			return AX;
-		else if (reg == "BX")
-			return BX;
-		else if (reg == "CX")
-			return CX;
-		else if (reg == "DX")
-			return DX;
+		if (reg == "AX" || reg == "BX" || reg == "CX" || reg == "DX")
+		{
+			return registers[reg];
+		}
 		else
 			throw "Unidentified Register";
 	}
@@ -56,14 +59,10 @@ bool Microprocessor::writeRegister(string reg, int val)
 {
 	try
 	{
-		if (reg == "AX")
-			AX = val;
-		else if (reg == "BX")
-			BX = val;
-		else if (reg == "CX")
-			CX = val;
-		else if (reg == "DX")
-			DX = val;
+		if (reg == "AX" || reg == "BX" || reg == "CX" || reg == "DX")
+		{
+			registers[reg] = val;
+		}
 		else
 			throw "Unidentified Register";
 	}
@@ -101,10 +100,25 @@ int Microprocessor::getPC()
 
 void Microprocessor::displayRegisters()
 {
-	cout << "AX: " << AX << endl;
-	cout << "BX: " << BX << endl;
-	cout << "CX: " << CX << endl;
-	cout << "DX: " << DX << endl;
+	if(registers["AX"]!=INT_MAX)
+		cout << "AX: " << registers["AX"] << endl;
+	else
+		cout << "AX: " << "/Any trash value" << endl;
+
+	if (registers["BX"] != INT_MAX)
+		cout << "BX: " << registers["BX"] << endl;
+	else
+		cout << "BX: " << "/Any trash value" << endl;
+
+	if (registers["CX"] != INT_MAX)
+		cout << "CX: " << registers["CX"] << endl;
+	else
+		cout << "CX: " << "/Any trash value" << endl;
+
+	if (registers["DX"] != INT_MAX)
+		cout << "DX: " << registers["DX"] << endl;
+	else
+		cout << "DX: " << "/Any trash value" << endl;
 }
 
 void Microprocessor::displayMemory()

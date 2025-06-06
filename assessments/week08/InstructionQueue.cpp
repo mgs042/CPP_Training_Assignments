@@ -45,22 +45,24 @@ void InstructionQueue::displayInstructions()
 void InstructionQueue::execute()
 {
 	array<string, 3> instr;
+	bool flag;
 	for (string i : instructions)
 	{
+		flag = false;
 		try
 		{
 			m.setPC(m.getPC() + 1);
 			instr = tokenizeInstruction(i);
 			if (instr.at(0) == "MOV")
-				m.mov(instr.at(1), instr.at(2));
+				flag = m.mov(instr.at(1), instr.at(2));
 			else if (instr.at(0) == "ADD")
-				m.add(instr.at(1), instr.at(2));
+				flag = m.add(instr.at(1), instr.at(2));
 			else if (instr.at(0) == "SUB")
-				m.sub(instr.at(1), instr.at(2));
+				flag = m.sub(instr.at(1), instr.at(2));
 			else if (instr.at(0) == "MUL")
-				m.mul(instr.at(1), instr.at(2));
+				flag = m.mul(instr.at(1), instr.at(2));
 			else if (instr.at(0) == "DIV")
-				m.div(instr.at(1), instr.at(2));
+				flag = m.div(instr.at(1), instr.at(2));
 			else if (instr.at(0) == "HLT")
 				m.hlt();
 			else
@@ -70,7 +72,8 @@ void InstructionQueue::execute()
 		{
 			cerr << "Error: " << s << endl;
 		}
-
+		if (flag == false)
+			cout << "Instruction cannot be executed" << endl;
 	}
 	
 }

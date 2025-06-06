@@ -75,7 +75,7 @@ bool Microprocessor::add(string op1, string op2)
 		cerr << "Error: " << s << endl;
 		return false;
 	}
-	AX = temp1 + temp2;
+	registers["AX"] = temp1 + temp2;
 	return true;
 }
 
@@ -115,7 +115,7 @@ bool Microprocessor::sub(string op1, string op2)
 		cerr << "Error: " << s << endl;
 		return false;
 	}
-	AX = temp1 - temp2;
+	registers["AX"] = temp1 - temp2;
 	return true;
 }
 
@@ -155,7 +155,7 @@ bool Microprocessor::mul(string op1, string op2)
 		cerr << "Error: " << s << endl;
 		return false;
 	}
-	AX = temp1 * temp2;
+	registers["AX"] = temp1 * temp2;
 	return true;
 }
 
@@ -197,7 +197,7 @@ bool Microprocessor::div(string op1, string op2)
 		cerr << "Error: " << s << endl;
 		return false;
 	}
-	AX = temp1 / temp2;
+	registers["AX"] = temp1 / temp2;
 	return true;
 }
 
