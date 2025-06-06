@@ -92,6 +92,7 @@ bool Microprocessor::writeRegister(string reg, int val)
 	}
 	return true;
 }
+
 bool Microprocessor::writeMemoryAddr(int addr, int val)
 {
 	try
@@ -154,7 +155,6 @@ int Microprocessor::getPC()
 {
 	return this->PC;
 }
-
 
 void Microprocessor::displayRegisters()
 {

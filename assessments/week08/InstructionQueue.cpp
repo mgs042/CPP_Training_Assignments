@@ -40,6 +40,7 @@ void InstructionQueue::displayInstructions()
 {
 	for (string i : instructions)
 		cout << i << endl;
+	cout << "No of Instructions: " << instructions.size() << endl;
 }
 
 void InstructionQueue::execute()
@@ -77,6 +78,8 @@ void InstructionQueue::execute()
 		}
 		if (flag == false)
 			cout << "Instruction " <<m.getPC()-1<<" cannot be executed" << endl;
+		
+		instructions.pop_front();
 	}
 	
 }

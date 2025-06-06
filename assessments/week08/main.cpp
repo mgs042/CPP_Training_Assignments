@@ -14,6 +14,9 @@ int main()
 		ob.addInstruction(line);
 	}
 	//ob.displayInstructions();
-	cout << endl << endl;
 	ob.execute();
+	cout << endl;
+	//ob.displayInstructions();
+	return 0;
 }
+
