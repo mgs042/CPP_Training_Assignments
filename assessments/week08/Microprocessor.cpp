@@ -2,6 +2,8 @@
 #include<iostream>
 using namespace std;
 
+#define MAX_VAL 16777216
+
 Microprocessor::Microprocessor() : PC(0) 
 {
 	memory.fill(0);
@@ -99,7 +101,7 @@ bool Microprocessor::writeMemoryAddr(int addr, int val)
 			memory.at(addr) = val;
 			allocation.at(addr) = 0;
 		}
-		else   //handle overflow condition, more than 1 byte values
+		else if(val>256 && val<MAX_VAL)  //handle overflow condition, more than 1 byte values
 		{
 			int count = val / 256;	//find the number of blocks required to store th val
 			int i = 0;
@@ -110,14 +112,34 @@ bool Microprocessor::writeMemoryAddr(int addr, int val)
 					memory.at(addr+i) = 256;	//store the full blocks
 					allocation.at(addr+i) = 1;
 				}
+				else
+				{
+					throw "Insufficient memory at this location";
+				}
 			}
-			memory.at(addr+i) = val%256;	//store the blocks
-			allocation.at(addr+i) = 1;
+			if (allocation.at(addr + i) == -1)
+			{
+				memory.at(addr + i) = val%256;	//store the full blocks
+				allocation.at(addr + i) = 1;
+			}
+			else
+			{
+				throw "Insufficient memory at this location";
+			}
+		}
+		else
+		{
+			throw "Exceeds total memory capacity";
 		}
 	}
 	catch (exception& e)
 	{
 		cerr << "Error: " << e.what() << endl;
+		return false;
+	}
+	catch (const char* s)
+	{
+		cerr << "Error: " << s << endl;
 		return false;
 	}
 	return true;

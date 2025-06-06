@@ -76,7 +76,7 @@ void InstructionQueue::execute()
 			cerr << "Error: " << s << endl;
 		}
 		if (flag == false)
-			cout << "Instruction" <<m.getPC()-1<<" cannot be executed" << endl;
+			cout << "Instruction " <<m.getPC()-1<<" cannot be executed" << endl;
 	}
 	
 }

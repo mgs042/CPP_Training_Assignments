@@ -21,13 +21,13 @@ bool Microprocessor::mov(string op1, string op2)
 		cerr << "Error: " << s << endl;
 		return false;
 	}
-
+	bool flag;
 	try
 	{
 		if (isRegister(op1))
-			writeRegister(op1, temp);
+			flag=writeRegister(op1, temp);
 		else if (isMemoryAddr(op1))
-			writeMemoryAddr(getAddr(op1), temp);
+			flag=writeMemoryAddr(getAddr(op1), temp);
 		else
 			throw "Unidentified OP1";
 	}
@@ -36,7 +36,7 @@ bool Microprocessor::mov(string op1, string op2)
 		cerr << "Error: " << s << endl;
 		return false;
 	}
-	return true;
+	return flag;
 }
 
 bool Microprocessor::add(string op1, string op2)
