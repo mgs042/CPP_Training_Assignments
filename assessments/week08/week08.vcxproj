@@ -136,6 +136,7 @@
     <ClCompile Include="InstructionQueue.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Microprocessor.cpp" />
+    <ClCompile Include="Operations.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="instructions.txt" />
