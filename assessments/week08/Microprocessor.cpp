@@ -4,11 +4,12 @@ using namespace std;
 
 Microprocessor::Microprocessor() : PC(0) 
 {
-	memory.fill(INT_MAX); 
-	registers["AX"] = INT_MAX;
-	registers["BX"] = INT_MAX;
-	registers["CX"] = INT_MAX;
-	registers["DX"] = INT_MAX;
+	memory.fill(0);
+	allocation.fill(-1);
+	registers["AX"] = INT_MIN;
+	registers["BX"] = INT_MIN;
+	registers["CX"] = INT_MIN;
+	registers["DX"] = INT_MIN;
 }
 
 bool Microprocessor::isRegister(string s) //to check if register
@@ -16,7 +17,7 @@ bool Microprocessor::isRegister(string s) //to check if register
 	return s == "AX" || s == "BX" || s == "CX" || s == "DX";
 }
 
-bool Microprocessor::isMemoryAddr(string s) //to check if register
+bool Microprocessor::isMemoryAddr(string s) //to check if mem address
 {
 	return s[0] == '[';
 }
@@ -26,7 +27,7 @@ bool Microprocessor::isDirect(string s) //to check if direct
 	return !isMemoryAddr(s) && !isRegister(s);
 }
 
-int Microprocessor::readRegister(string reg) //
+int Microprocessor::readRegister(string reg)
 {
 	try
 	{
@@ -47,11 +48,27 @@ int Microprocessor::readMemoryAddr(int addr)
 {
 	try
 	{
-		return memory.at(addr);
+		if (allocation.at(addr) == -1)
+			throw "Free memory being read";
+		else if(allocation.at(addr)==0)
+			return memory.at(addr);
+		else if (allocation.at(addr) == 1)
+		{
+			int val = 0;
+			for (int i = 0; allocation.at(addr + i) == 1; i++)
+				val += memory.at(addr + i);
+			return val;
+		}
 	}
 	catch (exception& e)
 	{
 		cerr << "Error: " << e.what() << endl;
+		return 0;
+	}
+	catch (const char* s)
+	{
+		cerr << "Error: " << s << endl;
+		return 0;
 	}
 }
 
@@ -77,7 +94,26 @@ bool Microprocessor::writeMemoryAddr(int addr, int val)
 {
 	try
 	{
-		memory.at(addr) = val;
+		if(val<=256)
+		{
+			memory.at(addr) = val;
+			allocation.at(addr) = 0;
+		}
+		else   //handle overflow condition, more than 1 byte values
+		{
+			int count = val / 256;	//find the number of blocks required to store th val
+			int i = 0;
+			for (i = 0; i < count; ++i)
+			{
+				if (allocation.at(addr + i) == -1)
+				{
+					memory.at(addr+i) = 256;	//store the full blocks
+					allocation.at(addr+i) = 1;
+				}
+			}
+			memory.at(addr+i) = val%256;	//store the blocks
+			allocation.at(addr+i) = 1;
+		}
 	}
 	catch (exception& e)
 	{
@@ -100,25 +136,10 @@ int Microprocessor::getPC()
 
 void Microprocessor::displayRegisters()
 {
-	if(registers["AX"]!=INT_MAX)
-		cout << "AX: " << registers["AX"] << endl;
-	else
-		cout << "AX: " << "/Any trash value" << endl;
-
-	if (registers["BX"] != INT_MAX)
-		cout << "BX: " << registers["BX"] << endl;
-	else
-		cout << "BX: " << "/Any trash value" << endl;
-
-	if (registers["CX"] != INT_MAX)
-		cout << "CX: " << registers["CX"] << endl;
-	else
-		cout << "CX: " << "/Any trash value" << endl;
-
-	if (registers["DX"] != INT_MAX)
-		cout << "DX: " << registers["DX"] << endl;
-	else
-		cout << "DX: " << "/Any trash value" << endl;
+	cout << "AX: " << registers["AX"] << endl;
+	cout << "BX: " << registers["BX"] << endl;
+	cout << "CX: " << registers["CX"] << endl;
+	cout << "DX: " << registers["DX"] << endl;
 }
 
 void Microprocessor::displayMemory()
@@ -127,10 +148,7 @@ void Microprocessor::displayMemory()
 	{
 		if (i < 10)
 			cout << "0";
-		if(memory[i]==INT_MAX)
-			cout << i << " -> " << "// Any trash value" << endl;
-		else
-			cout << i << " -> " << memory[i] << endl;	
+		cout << i << " -> " << memory[i] << endl;	
 	}
 }
 

@@ -8,7 +8,8 @@ using namespace std;
 class Microprocessor
 {
 	map<string, int> registers;
-	array<int, 64> memory;
+	array<int, 65536> memory;
+	array<int, 65566> allocation;
 	int PC;
 	bool isRegister(string);
 	bool isMemoryAddr(string);

@@ -64,7 +64,10 @@ void InstructionQueue::execute()
 			else if (instr.at(0) == "DIV")
 				flag = m.div(instr.at(1), instr.at(2));
 			else if (instr.at(0) == "HLT")
+			{
 				m.hlt();
+				flag = true;
+			}
 			else
 				throw "Unidentified instruction";
 		}
@@ -73,7 +76,7 @@ void InstructionQueue::execute()
 			cerr << "Error: " << s << endl;
 		}
 		if (flag == false)
-			cout << "Instruction cannot be executed" << endl;
+			cout << "Instruction" <<m.getPC()-1<<" cannot be executed" << endl;
 	}
 	
 }
