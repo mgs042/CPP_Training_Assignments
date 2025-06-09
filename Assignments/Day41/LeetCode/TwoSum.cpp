@@ -1,6 +1,11 @@
+#include<vector>
+#include<iostream>
+#include<map>
+using namespace std;
+
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
+    /*vector<int> twoSum(vector<int>& nums, int target) {
         int sum=0;
         vector<int> res;
         map<int, int> diff;
@@ -17,12 +22,32 @@ public:
             }
         }
         return res;
+    }*/
+
+    
+    vector<int> twoSum(vector<int>& nums, int target) {
+        vector<int> res;
+        for(int i=0; i<nums.size(); ++i)
+        {
+            for(int j=i+1; j<nums.size(); ++j)
+            {
+                if(nums[i]+nums[j]==target)
+                {
+                    res.push_back(i);
+                    res.push_back(j);
+                    return res;
+                }
+            }
+        }
+        return res;
     }
+    
 };
 
 int main()
 {
+    Solution s;
     vector<int> testCase = {2, 7, 11, 15};
-    vector<int> result = {testCase, 9};
+    vector<int> result = s.twoSum(testCase, 9);
     cout<<"["<<result.at(0)<<", "<<result.at(1)<<"]"<<endl;
 }
