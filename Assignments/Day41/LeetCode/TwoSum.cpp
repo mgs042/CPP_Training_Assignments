@@ -39,6 +39,8 @@ public:
                 }
             }
         }
+        res.push_back(-1);
+        res.push_back(-1);
         return res;
     }
     
@@ -48,6 +50,6 @@ int main()
 {
     Solution s;
     vector<int> testCase = {2, 7, 11, 15};
-    vector<int> result = s.twoSum(testCase, 9);
+    vector<int> result = s.twoSum(testCase, 26);
     cout<<"["<<result.at(0)<<", "<<result.at(1)<<"]"<<endl;
 }
