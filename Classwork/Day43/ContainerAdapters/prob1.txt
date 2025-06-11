@@ -1,0 +1,7 @@
+visit google.com
+visit stackoverflow.com
+back
+visit github.com
+back
+forward
+forward
