@@ -13,5 +13,5 @@ public:
 	virtual void display() = 0;
 	bool checkPassword(std::string);
 	std::string getUsername();
-
+	std::string getName();
 };

@@ -13,6 +13,7 @@ void Buyer::display()
 {
 	std::cout << "Name: " << name << std::endl;
 	std::cout << "Username: " << username << std::endl;
+	std::cout << "Items ----- Bid Amt ----- Bid Time" << std::endl;
 	for (auto & p : buyerBids)
 	{
 		time_t t = std::chrono::system_clock::to_time_t((p.second).getBidTime());

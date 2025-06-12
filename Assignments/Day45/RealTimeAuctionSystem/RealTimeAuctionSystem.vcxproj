@@ -139,6 +139,7 @@
     <ClCompile Include="Auction.cpp" />
     <ClCompile Include="Bid.cpp" />
     <ClCompile Include="Buyer.cpp" />
+    <ClCompile Include="Seller.cpp" />
     <ClCompile Include="User.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

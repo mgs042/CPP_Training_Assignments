@@ -11,3 +11,8 @@ std::string User::getUsername()
 {
 	return this->username;
 }
+
+std::string User::getName()
+{
+	return this->name;
+}
