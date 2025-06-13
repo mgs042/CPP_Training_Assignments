@@ -129,11 +129,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="inc\CDRProcessor.h" />
     <ClInclude Include="inc\Customer.h" />
     <ClInclude Include="inc\User.h" />
+    <ClInclude Include="inc\Operator.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Customer.cpp" />
+    <ClCompile Include="CDRProcessor.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Operator.cpp" />
     <ClCompile Include="User.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

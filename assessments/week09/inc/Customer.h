@@ -23,8 +23,8 @@ public:
 	void incomingCall(int, bool);
 	void outgoingCall(int, bool);
 	void smsSent(bool);
-	void smsRecieved(bool);
+	void smsReceived(bool);
 	void download(int);
 	void upload(int);
-	void customerBilling();
+	void customerBill();
 };
