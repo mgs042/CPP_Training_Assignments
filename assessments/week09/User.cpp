@@ -11,3 +11,8 @@ std::string User::getName()
 {
 	return this->name;
 }
+
+bool User::checkPassword(std::string p)
+{
+	return this->password == p;
+}

@@ -1,14 +1,16 @@
 #include<CDRProcessor.h>
 #include<iostream>
 #include<thread>
+#include<vector>
+#include<User.h>
 
 int loginScreen()
 {
 	std::cout << std::endl;
 	int ch;
 	std::cout << "Login Screen" << std::endl;
-	std::cout << "1. Login" << std::endl;
-	std::cout << "2. SignUp" << std::endl;
+	std::cout << "1. SignUp" << std::endl;
+	std::cout << "2. Login" << std::endl;
 	std::cout << "3. Exit" << std::endl;
 	std::cout << "Choice: ";
 	std::cin >> ch;
@@ -56,51 +58,97 @@ void processFiles(CDRProcessor& ob)
 int main()
 {
 	CDRProcessor ob("data.cdr");
+	std::vector<User> userList;
 	/*ob.readCDRForCustomer();
 	ob.customerBillingById("1522840");*/
 	/*ob.readCDRForOperator();
 	ob.operatorBillingById("42500");*/
-	int choice, choice2;
+	int choice, choice2, choice3;
 	std::string s;
-	while ((choice = mainMenu()) != 3)
+	std::string n, u, p;
+	bool flag = false;
+	while ((choice3=loginScreen())!=3)
 	{
-		switch (choice)
+		switch (choice3)
 		{
-		default:
-			std::cout << "Invalid Choice" << std::endl;
-			break;
 		case 1:
-			std::cout << "Processing Files......" << std::endl;
-			processFiles(ob);
-			std::cout << "All files processed" << std::endl;
+			std::cout << "Sign Up" << std::endl;
+			std::cout << "Enter Name: ";
+			std::cin.ignore();
+			getline(std::cin, n);
+			std::cout << "Enter Username: ";
+			std::cin.ignore();
+			getline(std::cin, u);
+			std::cout << "Enter Password: ";
+			std::cin.ignore();
+			getline(std::cin, p);
+			userList.emplace_back(User(n, u, p));
 			break;
 		case 2:
-			while ((choice2 = subMenu())!=3)
+			std::cout << "Login" << std::endl;
+			std::cout << "Enter Username: ";
+			std::cin.ignore();
+			getchar();
+			getline(std::cin, u);
+			std::cout << "Enter Password: ";
+			std::cin.ignore();
+			getline(std::cin, p);
+			for (auto i : userList)
 			{
-				switch (choice2)
+				if (i.getUserName() == u && i.checkPassword(p))
+					flag = true;
+					
+			}
+			if (!flag)
+			{
+				std::cout << "Invalid Credentials" << std::endl;
+				break;
+			}
+			while ((choice = mainMenu()) != 3)
+			{
+				switch (choice)
 				{
 				default:
-					std::cout << "Invalid option" << std::endl;
+					std::cout << "Invalid Choice" << std::endl;
 					break;
 				case 1:
-					std::cout << "Enter the MSISDN of customer: ";
-					std::cin.ignore();
-					getline(std::cin, s);
-					ob.customerBillingById(s);
+					std::cout << "Processing Files......" << std::endl;
+					processFiles(ob);
+					std::cout << "All files processed" << std::endl;
 					break;
 				case 2:
-					std::cout << "Enter the MMC\MNC of operator: ";
-					std::cin.ignore();
-					getline(std::cin, s);
-					ob.operatorBillingById(s);
+					while ((choice2 = subMenu()) != 3)
+					{
+						switch (choice2)
+						{
+						default:
+							std::cout << "Invalid option" << std::endl;
+							break;
+						case 1:
+							std::cout << "Enter the MSISDN of customer: ";
+							std::cin.ignore();
+							getline(std::cin, s);
+							ob.customerBillingById(s);
+							break;
+						case 2:
+							std::cout << "Enter the MMC\MNC of operator: ";
+							std::cin.ignore();
+							getline(std::cin, s);
+							ob.operatorBillingById(s);
+							break;
+						}
+					}
 					break;
+				case 3:
+					std::cout << "Logout" << std::endl;
+					break;
+
 				}
 			}
 			break;
 		case 3:
-			std::cout << "Logout" << std::endl;
+			std::cout << "Exiting..." << std::endl;
 			break;
-
 		}
 	}
 
