@@ -8,7 +8,7 @@ int loginScreen()
 {
 	std::cout << std::endl;
 	int ch;
-	std::cout << "Login Screen" << std::endl;
+	std::cout << "\tLogin Screen" << std::endl;
 	std::cout << "1. SignUp" << std::endl;
 	std::cout << "2. Login" << std::endl;
 	std::cout << "3. Exit" << std::endl;
@@ -22,7 +22,7 @@ int mainMenu()
 {
 	std::cout << std::endl;
 	int ch;
-	std::cout << "Main-Menu" << std::endl;
+	std::cout << "\tMain-Menu" << std::endl;
 	std::cout << "1. Process CDR File" << std::endl;
 	std::cout << "2. Search Billing Info" << std::endl;
 	std::cout << "3. Logout" << std::endl;
@@ -36,11 +36,11 @@ int subMenu()
 {
 	std::cout << std::endl;
 	int choice;
-	std::cout << "Sub-Menu"<<std::endl;
-	std::cout << "1. Customer Billing" << std::endl;
-	std::cout << "2. Interoperator Settlement Billing" << std::endl;
-	std::cout << "3. Back" << std::endl;
-	std::cout << "Choice: ";
+	std::cout << "\t\t\tSub-Menu"<<std::endl;
+	std::cout << "\t\t1. Customer Billing" << std::endl;
+	std::cout << "\t\t2. Interoperator Settlement Billing" << std::endl;
+	std::cout << "\t\t3. Back" << std::endl;
+	std::cout << "\t\tChoice: ";
 	std::cin >> choice;
 	std::cout << std::endl;
 	return choice;
